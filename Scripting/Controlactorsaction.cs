@@ -77,11 +77,11 @@ namespace cse21005.Game.Scripting
 
             Biker tron1 = (Biker)cast.GetFirstActor("biker1");
             tron1.TurnHead(_direction1);
-            tron1.GrowTail(1);
+            tron1.GrowTail(1, Constants.RED);
             
             Biker tron2 = (Biker)cast.GetFirstActor("biker2");
             tron2.TurnHead(_direction2);
-            tron2.GrowTail(1);
+            tron2.GrowTail(1, Constants.BLUE);
 
         } 
     }

@@ -56,7 +56,7 @@ namespace cse21005.Game.Scripting
         // }
 
         /// <summary>
-        /// Sets the game over flag if the snake collides with one of its segments.
+        /// Sets the game over flag if the bikers collide with themselves or the other bike.
         /// </summary>
         /// <param name="cast">The cast of actors.</param>
         private void HandleSegmentCollisions(Cast cast)
@@ -65,6 +65,9 @@ namespace cse21005.Game.Scripting
             Actor head1 = bike1.GetHead();
             List<Actor> body1 = bike1.GetBody();
             
+            Biker bike2 = (Biker)cast.GetFirstActor("biker2");
+            Actor head2 = bike2.GetHead();
+            List<Actor> body2 = bike2.GetBody();
 
             foreach (Actor segment1 in body1)
             {
@@ -72,16 +75,19 @@ namespace cse21005.Game.Scripting
                 {
                     _isGameOver = true;
                 }
+                else if (segment1.GetPosition().Equals(head2.GetPosition()))
+                {
+                    _isGameOver = true;
+                }
             }
-
-            Biker bike2 = (Biker)cast.GetFirstActor("biker1");
-            Actor head2 = bike2.GetHead();
-            List<Actor> body2 = bike2.GetBody();
-            
 
             foreach (Actor segment2 in body2)
             {
                 if (segment2.GetPosition().Equals(head2.GetPosition()))
+                {
+                    _isGameOver = true;
+                }
+                else if (segment2.GetPosition().Equals(head1.GetPosition()))
                 {
                     _isGameOver = true;
                 }

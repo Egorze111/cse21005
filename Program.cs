@@ -2,7 +2,7 @@
 using cse21005.Game.Directing;
 using cse21005.Game.Scripting;
 using cse21005.Game.Services;
-
+using cse21005.Game;
 
 namespace cse21005
 {
@@ -20,8 +20,11 @@ namespace cse21005
             // create the cast
             Cast cast = new Cast();
             //  cast.AddActor("food", new Food());
-            cast.AddActor("biker1", new Biker());
-            cast.AddActor("biker2", new Biker());
+            cast.AddActor("biker1", new Biker(Constants.CELL_SIZE*5, Constants.PURPLE)); 
+            cast.AddActor("biker2", new Biker(Constants.MAX_X - Constants.CELL_SIZE*5, Constants.PURPLE));
+            Biker biker2 = (Biker)cast.GetFirstActor("biker2");
+            Point direction = new Point(-Constants.CELL_SIZE, 0);
+            biker2.TurnHead(direction);
             cast.AddActor("score", new Score());
 
             // create the services

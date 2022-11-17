@@ -15,9 +15,13 @@ namespace cse21005.Game.Casting
         /// <summary>
         /// Constructs a new instance of a Biker.
         /// </summary>
-        public Biker()
+        /// <param name="dividor">The number that will divide the x coordinate.</param>
+        /// <param name="head color">The color for the head.</param>
+        /// <param name="tail color">The color for the tail.</param>
+
+        public Biker(int x_dividor, Color headColor)
         {
-            PrepareBody();
+            PrepareBody(x_dividor, headColor);
         }
 
         /// <summary>
@@ -51,7 +55,7 @@ namespace cse21005.Game.Casting
         /// Grows the Biker's tail by the given number of segments.
         /// </summary>
         /// <param name="numberOfSegments">The number of segments to grow.</param>
-        public void GrowTail(int numberOfSegments)
+        public void GrowTail(int numberOfSegments, Color tailColor)
         {
             for (int i = 0; i < numberOfSegments; i++)
             {
@@ -63,8 +67,8 @@ namespace cse21005.Game.Casting
                 Actor segment = new Actor();
                 segment.SetPosition(position);
                 segment.SetVelocity(velocity);
-                segment.SetText("#");
-                segment.SetColor(Constants.GREEN);
+                segment.SetText("O");
+                segment.SetColor(tailColor);
                 _segments.Add(segment);
             }
         }
@@ -98,17 +102,18 @@ namespace cse21005.Game.Casting
         /// <summary>
         /// Prepares the Biker body for moving.
         /// </summary>
-        private void PrepareBody()
+        /// <param name="dividor">The number that will divide the x coordinate.</param>
+        private void PrepareBody(int xPosition, Color headColor)
         {
-            int x = Constants.MAX_X / 2;
+            int x = xPosition;
             int y = Constants.MAX_Y / 2;
 
             for (int i = 0; i < Constants.BIKER_LENGTH; i++)
             {
                 Point position = new Point(x - i * Constants.CELL_SIZE, y);
                 Point velocity = new Point(1 * Constants.CELL_SIZE, 0);
-                string text = i == 0 ? "8" : "#";
-                Color color = i == 0 ? Constants.YELLOW : Constants.GREEN;
+                string text = i == 0 ? "@" : "O";
+                Color color = headColor;
 
                 Actor segment = new Actor();
                 segment.SetPosition(position);

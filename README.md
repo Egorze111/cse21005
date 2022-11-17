@@ -59,7 +59,4 @@ dotnet run
 - Emma Quackenbush
 
 ## To do:
-- change biker colors 
-- change biker start positions and directions
-- collision with other biker
-- just have a grand old time
+- Score!!

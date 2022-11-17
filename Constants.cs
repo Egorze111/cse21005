@@ -5,9 +5,9 @@ using cse21005.Game.Casting;
 namespace cse21005.Game
 {
     /// <summary>
-    /// <para>A tasty item that snakes like to eat.</para>
+    /// <para>A holder for constants used throughout the program.</para>
     /// <para>
-    /// The responsibility of Food is to select a random position and points that it's worth.
+    /// The responsibility of Constants is to hold values for box size, colors, etc. 
     /// </para>
     /// </summary>
     public class Constants
@@ -27,7 +27,8 @@ namespace cse21005.Game
         public static Color WHITE = new Color(255, 255, 255);
         public static Color YELLOW = new Color(255, 255, 0);
         public static Color GREEN = new Color(0, 255, 0);
-
+        public static Color BLUE = new Color(0, 0, 255);
+        public static Color PURPLE = new Color(128, 0, 128);
     }
 }
 

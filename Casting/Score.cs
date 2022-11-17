@@ -4,9 +4,9 @@ using System;
 namespace cse21005.Game.Casting
 {
     /// <summary>
-    /// <para>A tasty item that bikers like to eat.</para>
+    /// <para>A timer for the players.</para>
     /// <para>
-    /// The responsibility of Score is to keep track of how much time has passed.??
+    /// The responsibility of Score is to keep track of how much time has passed.
     /// </para>
     /// </summary>
     public class Score : Actor
@@ -14,7 +14,7 @@ namespace cse21005.Game.Casting
         private int _points = 0;
 
         /// <summary>
-        /// Constructs a new instance of an Food.
+        /// Constructs a new instance of Score.
         /// </summary>
         public Score()
         {
